@@ -1,8 +1,9 @@
 # EX01 Developing a Simple Webserver
-## Date:28/9/24
+## Date:3-10-2024
+## VIMALA RANI A
 
 ## AIM:
-To develop a simple webserver to serve html pages and display the configuration details of laptop.
+To develop a simple webserver to display the configuration details of my laptop.
 
 ## DESIGN STEPS:
 ### Step 1: 
@@ -22,55 +23,91 @@ Testing the webserver.
 
 ## PROGRAM:
 ```
-<!DOCTYPE html>
-<head>
-    <title>LAPTOP CONFIGURATION</title>
-</head>
+from http.server import HTTPServer,BaseHTTPRequestHandler
 
-<body><center>
-    <h1>My laptop configuration</h1>SANJAY V 212223230188<h1></h1></center>
-    <table border="2px" align="center" cellpadding="10" style="background-color: antiquewhite;" >
-    <tr style="color: black; ">
-        <th>DEVICE SPECIFICATION</th>
-        <th>DETAILS</th>
-    </tr>
-    <tr style="color: rgb(0, 0, 0); ">
-        <td>BRAND</td>
-        <td>LENOVO</td>
+content='''
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Specification</title>
+    <style>
+        body{
+            background-color: #ecffc4fe;
+        }
+        table {
+            width: 30%;
+            margin: 20px auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            border: 1px solid #000;
+            text-align: left;
+        }
+        td:first-child::after {
+            content: ":";
+            margin-left: 5px;
+        }
+        h2{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h2>Laptop Specifications</h2>
+<table class="specifications-table">
+    <tr>
+        <th>Specification</th>
+        <th>Details</th>
     </tr>
     <tr>
-        <td>MODEL NAME</td>
-        <td>E15 GEN 4</td>
+        <td>Brand</td>
+        <td>HP</td>
     </tr>
     <tr>
-        <td>SCREEN SIZE</td>
-        <td>15.6 inches</td>
+        <td>Model</td>
+        <td>HP Pavilion</td>
     </tr>
     <tr>
-        <td>COLOR</td>
-        <td>BLACK</td>
+        <td>Processor</td>
+        <td>Intel Core i5 11th Gen</td>
     </tr>
     <tr>
         <td>RAM</td>
-        <td>16GB</td>
+        <td>8 GB</td>
     </tr>
     <tr>
-        <td>HARD DISK</td>
-        <td>CORE i5</td>
+        <td>Storage</td>
+        <td>512 GB</td>
+    </tr>
+
+    
+    <tr>
+        <td>Graphics</td>
+        <td>Integrated</td>
     </tr>
     <tr>
-        <td>GRAPHICS CARD</td>
-        <td>NVIDIA</td>
+        <td>Display</td>
+        <td>15.6 Inches</td>
     </tr>
     <tr>
-        <td>SYSTEM TYPE</td>
-        <td>64 BIT-OS,X64</td>
+        <td>Battery Life</td>
+        <td>Up to 10 hours</td>
+    </tr>
+    <tr>
+        <td>Operating System</td>
+        <td>Windows 11</td>
+    </tr>
+    <tr>
+        <td>Special Feature</td>
+        <td>Anti Glare Screen</td>
     </tr>
 </table>
-
 </body>
-
-
+</html>
+'''
 
 class MyServer(BaseHTTPRequestHandler):
     def do_GET(self):
@@ -85,14 +122,8 @@ server_address =('',8000)
 httpd = HTTPServer(server_address,MyServer)
 httpd.serve_forever()
 ```
-
-
-
-## OUTPUT: 
-
-## WEB SERVER:
-![image](https://github.com/user-attachments/assets/e716d51f-84fa-4824-ad9b-d598c65e9094)
-
+## OUTPUT:
+![Screenshot 2024-09-19 153620](https://github.com/user-attachments/assets/8f64e4a1-2249-4e7d-89b7-70988d2ac4a8)
 
 
 ## RESULT:
